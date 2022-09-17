@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-describe('automate the cart', () => {
+describe('add to card and checkout', () => {
     beforeEach(() => {
       cy.visit('http://automationpractice.com/index.php')
     })
-    it('add_product_to_cart', ()=>{
+    it('add_product_to_the_cart', ()=>{
         cy.get('a.ajax_add_to_cart_button').eq(1).should('be.visible')
         cy.get('a.ajax_add_to_cart_button').eq(1).click()
         cy.get('div.button-container>a[title="Proceed to checkout"]').should('be.visible')
