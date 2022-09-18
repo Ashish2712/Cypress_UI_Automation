@@ -1,15 +1,16 @@
 /// <reference types="cypress" />
 
 describe('add to card and checkout', () => {
-    beforeEach(() => {
-      cy.visit('http://automationpractice.com/index.php')
+    it('go to home page', () => { 
+      cy.visit('http://automationpractice.com/index.php');
     })
-    it('add_product_to_the_cart', ()=>{
-        cy.get('a.ajax_add_to_cart_button').eq(1).should('be.visible')
-        cy.get('a.ajax_add_to_cart_button').eq(1).click()
-        cy.get('div.button-container>a[title="Proceed to checkout"]').should('be.visible')
-        cy.get('div.button-container>a[title="Proceed to checkout"]').click()
-        cy.get('p.cart_navigation>a[title="Proceed to checkout"]').should('be.visible')
-        cy.get('p.cart_navigation>a[title="Proceed to checkout"]').click()
+    it('search the product', () => {
+        cy.get('#search_query_top').type('dress').click();
+    })
+    it('select the 1st product', () => {
+        cy.get('.homefeatured>li:nth-child(1)').click();
+    })
+    it('add to cart', () => {
+      cy.get('#add_to_cart').click();
     })
 })
